@@ -1,0 +1,468 @@
+.upload-section {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background-color: white;
+    overflow: auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 0 !important;
+    box-shadow: inset 0 0 80px rgba(0, 0, 0, 0.03);
+}
+
+/* Style for back arrow icon */
+.back-icon,
+.close-tab-icon {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 10000;
+    color: #0056b3;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.back-icon:hover,
+.close-tab-icon:hover {
+    color: #004494;
+    transform: scale(1.1);
+}
+
+/* Additional styles to prevent interference with other content */
+body.uploading {
+    overflow: hidden;
+}
+
+
+.upload-header-color {
+    position: relative;
+    padding: 0px;
+    border-radius: 0px;
+    overflow: hidden; /* To prevent overflow from the pseudo-element */
+    background-color: white;
+}
+
+
+.video-section-header {
+    text-align: center;
+    margin-top: 10px !important;
+    font-size: 30px;
+    margin-bottom: 20px;
+    color: #1a202c;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+
+
+/* Tabs above the horizontal line */
+.upload-tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+    gap: 10px;
+    flex-direction: column;
+
+}
+
+.upload-tabs .tab {
+    margin: 0 10px;
+    font-size: 16px;
+    color: #3a3f44;
+    cursor: pointer;
+    background: none;
+    padding: 12px 20px;
+    text-decoration: none;
+    width: 100px;
+    transition: color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
+    border-radius: 6px;
+    background-color: white;
+}
+
+.upload-tabs .tab:hover {
+    color: #0056b3;
+    background-color: #dae4f2;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.upload-tabs .tab.active {
+    color: #555;
+    font-size: 26px;
+    font-weight: 600;
+    background-color: white;
+    box-shadow: none !important;
+    border-bottom: 1px solid #ddd !important;
+    border-radius: 0;
+}
+
+/* Horizontal line below the tabs */
+.upload-divider {
+    margin: 0 auto 20px auto;
+    width: 90%;
+    border: 1px solid #d3d8df;
+}
+
+/* Box below the horizontal line */
+.box-content {
+    display: none;
+    position: absolute;
+    top: 130px;
+    left: 200px;
+    width: calc(100% - 540px);
+    max-width: 850px;
+    height: 600px;
+    background: #ffffff;
+    border-right: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+    border-top: none !important;
+    border-bottom: none !important;
+    border-radius: 0px;
+    padding: 20px !important;
+    overflow-y: auto;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+
+
+/* Hide the scrollbar */
+.box-content::-webkit-scrollbar {
+    width: 8px;
+    background-color: #e5e7eb;
+}
+
+.box-content::-webkit-scrollbar-thumb {
+    background-color: #0056b3;
+    border-radius: 4px;
+}
+
+/* Content associated with each tab */
+.tab-content {
+    display: none;
+    margin-top: 10px;
+    padding: 0;
+}
+
+/* Steps inside each tab for large screens */
+.steps {
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 5px;
+    padding-left: 20px;
+    gap: 8px;
+}
+
+.steps .step {
+    margin: 1px 0;
+    font-size: 14px;
+    color: #0f0f0f;
+    cursor: pointer;
+    border: none;
+    padding: 10px 20px;
+    text-decoration: none;
+    transition: color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
+    border-radius: 6px;
+    width: 150px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.steps .step:hover {
+    color: #0056b3;
+    background-color: #dae4f2;
+    transform: translateX(6px);
+}
+
+.steps .step.active {
+    color: #ffffff;
+    background: #0f0f0f;
+
+}
+
+/* Content for the steps */
+.step-content {
+    display: none;
+    margin-top: 10px;
+    padding: 0;
+}
+
+/* Keyframes for animations */
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Video preview container */
+.video-preview {
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    background-color: white;
+    position: relative;
+    overflow: hidden;
+
+}
+
+/* Ensure the video fits perfectly in 16:9 aspect ratio */
+.video-preview video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Fit within the box while preserving aspect ratio */
+}
+
+/* Styles for the play/pause button */
+.video-preview .video-js .vjs-big-play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+
+/* Ensure the control bar remains unaffected */
+.video-preview .video-js .vjs-control-bar {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    z-index: 5;
+}
+
+/* Hide big play button when video is playing */
+.video-preview .video-js.vjs-playing .vjs-big-play-button {
+    display: none;
+}
+
+/* Make sure the control bar is always visible when video is paused */
+.video-preview .video-js.vjs-paused .vjs-control-bar {
+    display: flex;
+}
+/* Close Preview Button Styling */
+.close-preview-button {
+    display: block;
+    width: 100% !important;
+    padding: 10px 0 !important;
+    margin-top: 15px !important;
+    background-color: #0078d4 !important; /* accent color */
+    color: white !important;
+    border: none !important;
+    border-radius: 2px;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center !important;
+    display: none; /* Initially hidden */
+    transition: background-color 0.3s ease !important;
+}
+
+.close-preview-button:hover {
+    background-color: #005a9e !important; /*hover color */
+}
+/* Steps inside each tab for mid and small screens */
+@media (max-width: 992px) {
+    .steps {
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        margin-top: 20px;
+        padding-left: 0;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+        white-space: nowrap;
+    }
+
+    .steps::-webkit-scrollbar {
+        display: none;
+    }
+
+    .box-content {
+        position: static;
+        width: 100%;
+        height: auto;
+        max-width: none;
+        margin-top: 20px;
+    }
+}
+
+/* Steps inside each tab for small screens */
+@media (max-width: 768px) {
+    .upload-tabs {
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .upload-tabs .tab {
+        margin: 10px 5px;
+    }
+
+    .steps {
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+        white-space: nowrap;
+        margin-bottom: 40px !important;
+    }
+
+    .steps::-webkit-scrollbar {
+        display: none;
+    }
+
+    .steps .step {
+        margin: 10px 5px;
+    }
+
+    .box-content {
+        margin-top: 30px;
+    }
+}
+
+/* Adding gap between steps for screen sizes between 750px and 910px */
+@media (min-width: 750px) and (max-width: 992px) {
+    .steps .step {
+        align-items: center !important;
+        align-content: center !important;
+        align-self: center !important;
+        margin: auto !important;
+        margin-bottom: 30px !important;
+    }
+
+    .upload-tabs .tab {
+        margin: 10px 5px;
+        margin-bottom: 0px !important;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .steps {
+        margin-bottom: 40px !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .upload-tabs .tab {
+        margin: 10px 5px;
+        margin-bottom: 0px !important;
+    }
+
+    .steps {
+        margin-top: 0px !important;
+        margin-bottom: 30px !important;
+    }
+}
+
+
+
+/* General styles for large screens */
+
+/* Responsive styles for mid and small screens */
+@media (max-width: 992px) {
+
+
+    .box-content {
+        position: static;
+        width: 100%;
+        max-width: none;
+        height: auto;
+        border-left: none !important;
+        border-right: none !important;
+        margin-top: 0px !important;
+        margin-left: 0px !important;
+        margin-bottom: 0px !important;
+        margin-right: 0px !important;
+    }
+}
+
+@media (max-width: 768px) {
+
+
+    .video-preview {
+        width: 100%; /* Full width */
+        height: auto; /* Adjust height as needed */
+        padding-bottom: 56.25%; /* 16:9 aspect ratio */
+        margin: 0 !important; /* Remove all margins */
+        padding: 0 !important; /* Remove all padding */
+        box-sizing: border-box; /* Include padding/border within the width */
+    }
+
+    .box-content {
+        position: static;
+        width: 100%;
+        max-width: none;
+        height: auto;
+        margin-top: 0px !important;
+        margin-left: 0px !important;
+        margin-bottom: 0px !important;
+        margin-right: 0px !important;
+        border-left: none !important;
+        border-right: none !important;
+    }
+}
+
+/* Media query to handle 576px screen size */
+@media (max-width: 576px) {
+
+
+    .video-preview {
+        width: 100%; /* Full width */
+        height: auto; /* Adjust height as needed */
+        padding-bottom: 56.25%; /* 16:9 aspect ratio */
+        margin: 0 !important; /* Remove all margins */
+        padding: 0 !important; /* Remove all padding */
+        box-sizing: border-box; /* Include padding/border within the width */
+    }
+
+    .box-content {
+        position: static;
+        width: 100%;
+        max-width: none;
+        height: auto;
+        margin-top: 0px !important;
+        margin-left: 0px !important;
+        margin-bottom: 0px !important;
+        margin-right: 0px !important;
+        border-left: none !important;
+        border-right: none !important;
+        padding: none;
+    }
+
+}
+
+

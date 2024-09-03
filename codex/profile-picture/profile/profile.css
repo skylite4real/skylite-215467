@@ -1,0 +1,2011 @@
+/* Profile Section */
+.profile-section {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+    z-index: 1000;
+    display: none;
+    overflow-y: auto;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Profile Header */
+.profile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    top: 0;
+    background-color: #f0f2f5;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.close-profile-icon,
+.gear-icon,
+.options-icon,
+.dashboard-icon {
+    font-size: 24px;
+    cursor: pointer;
+    margin-left: 10px;
+    color: #333;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.options-container {
+    margin-left: 20px !important;
+    margin-right: 20px !important;
+}
+
+.close-profile-icon:hover,
+.gear-icon:hover,
+.options-icon:hover,
+.dashboard-icon:hover {
+    color: #333;
+    transform: scale(1.1);
+}
+
+.add-icon-plus- {
+    font-size: 24px;
+    cursor: pointer;
+    margin-left: 10px;
+    color: #333 !important;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.profile-header-shadow {
+    background-color: #f0f2f5;
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    width: 100%;
+    margin-bottom: 10px;
+    z-index: 20;
+    border: none;
+    outline: none;
+
+}
+
+
+.profile-info {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 0px;
+    animation: slideIn 0.5s ease-in-out;
+    height: 80px;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-50%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+.profile-photo-large {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    margin-right: 20px;
+    border: 1px solid #333;
+    transition: transform 0.3s;
+    margin-left: 10px;
+
+}
+
+.profile-photo-large:hover {
+    transform: scale(1.1);
+}
+
+.profile-details {
+    flex-grow: 1;
+    margin-top: 20px ;
+}
+
+
+.username {
+    font-size: 24px;
+    margin: 0;
+    top: 50px;
+    font-weight: bold;
+    color: #333;
+    transition: color 0.3s;
+}
+
+.username:hover {
+    color: #007bff;
+}
+
+.followers {
+    font-size: 16px;
+    top: 20px;
+    color: #777;
+    margin-bottom: 0px;
+}
+
+/* Buttons */
+.btn {
+    padding: 10px 20px;
+    background-color: #0078d4 !important;
+    color: white !important;
+    border: none !important;
+    outline: none !important;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
+}
+
+.btn:hover {
+    background-color: #005a9e !important;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    transform: translateY(-3px);
+}
+
+.edit-profile-btn, .share-profile-btn {
+    background-color: #fff;
+    color: #000;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-size: 14px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
+}
+
+.edit-profile-btn {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.edit-profile-btn:hover, .share-profile-btn:hover {
+    background-color: #0056b3;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    transform: translateY(-3px);
+}
+
+.edit-profile-btn i, .share-profile-btn i {
+    margin-right: 6px;
+}
+
+.update-profile-btn {
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-size: 14px;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    width: auto;
+    transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
+}
+
+.update-profile-btn:hover {
+    background-color: #0056b3;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    transform: translateY(-3px);
+}
+
+
+
+
+
+
+
+
+
+
+.tab-navigation .tab-link {
+    background-color: #ffffff;  
+    color: #333; 
+    border-radius: 100px; 
+    padding: 10px 20px;  
+    margin-right: 20px;
+    cursor: pointer; 
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.1s ease;
+    white-space: nowrap;
+    width: 200px;
+    outline: none;
+    border: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+}
+
+.tab-navigation .tab-link:hover {
+    background-color: #e7e7e7;  
+    color: #007bff; 
+    border-color: #007bff;  
+}
+
+.tab-navigation .tab-link:focus {
+    outline: none; 
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);  
+}
+
+.tab-navigation .tab-link:active {
+    background-color: #d4d4d4;
+    color: #0056b3 !important;
+    box-shadow: 0 0 3px rgba(0, 123, 255, 0.8) !important;  
+}
+
+
+
+.content-upload-holder .tab-navigation {
+    display: flex;  
+    align-items: center; 
+    margin-bottom: 20px;  
+    background: #ffffff; 
+    padding: 10px;  
+    border-bottom: none; 
+    white-space: nowrap;
+    padding-bottom: 10px;
+    overflow-y: scroll; 
+
+    border-radius: 0px;
+}
+
+.content-upload-holder .tab-navigation::-webkit-scrollbar {
+    display: none; 
+}
+
+.content-upload-holder .tab-navigation::-webkit-scrollbar-thumb {
+    background-color: #ccc; 
+    border-radius: 4px;
+}
+
+.content-upload-holder .tab-navigation::-webkit-scrollbar-thumb:hover {
+    background-color: #b3b3b3; 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*/////////////////////////*/
+/*/////////////////////////*/
+/*/////////////////////////*/
+/*/////////////////////////*/
+/*/////////////////////////*/
+/*profile tabs for uploading contents */
+.content-upload-holder {
+    position: absolute;
+    top: 130px;
+    height: 600px;
+    left: 200px;
+    width: calc(100% - 540px);
+    max-width: 850px;
+
+    background: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px; 
+    padding: 0px;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    overflow-y: auto;
+    animation: fadeIn 0.5s ease-in-out;
+    margin-right: 10px !important;
+}
+
+.content-upload-holder::-webkit-scrollbar {
+    width: 8px;
+}
+
+.content-upload-holder::-webkit-scrollbar-thumb {
+    background-color: #777777;
+    border-radius: 6px; 
+    border: 3px solid rgba(255, 255, 255, 0.3);
+}
+.content-upload-holder::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.05); 
+    border-radius: 10px; 
+    margin: 10px 0; 
+}
+.content-upload-tabs-holder {
+    height: 500px;
+}
+
+
+
+
+
+
+
+
+.upload-content-sidebar {
+    position: fixed;
+    top: 130px;
+    background-color: #ffffff; 
+    width: 190px;
+    padding: 0px;
+    border-radius: 8px; 
+    border: 1px solid #e0e0e0; 
+    height: 600px;
+    overflow-y: scroll;
+    margin-left: 0px;
+}
+
+.upload-content-sidebar h4 {
+    font-size: 16px; 
+    margin-bottom: 2px;
+    color: #0f0f0f;
+    font-family: Arial, sans-serif;
+    font-weight: 500; 
+    margin-left: 15px;
+    margin-top: 15px;
+    padding-bottom: 0px; 
+    font-weight: 600;
+}
+
+.tab-of-content-upload {
+    display: flex; 
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 10px;
+    color: #0f0f0f;
+    cursor: pointer;
+    text-align: left; 
+    font-size: 16px; 
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+    background-color: #ffffff; 
+    border: none;
+    border-radius: 10px; 
+    width: 160px;
+    margin-left: 15px;
+    font-family: Arial, sans-serif;
+
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+
+.tab-of-content-upload i {
+    margin-right: 20px; 
+}
+
+.tab-of-content-upload:hover {
+    background-color: #e8e8e8 !important;
+}
+
+/* Focus Effect */
+.tab-of-content-upload:focus {
+    background-color: #f0f0f0 !important; 
+    outline: none;
+}
+
+
+.upload-content-sidebar::-webkit-scrollbar {
+    display: none;
+}
+
+
+.titles-of-skylite-sidebar {
+    margin-bottom: 0px;
+    margin-top: 4px;
+}
+
+
+@media screen and (max-width: 1000px) and (min-width: 240px) {
+    .upload-content-sidebar {
+        position: fixed;
+        top: 120px;
+        width: 100%; 
+        height: 50px;
+        padding-top: 13px;
+        border-radius: 0; 
+        overflow-x: auto; 
+        overflow-y: hidden; 
+        display: flex;
+
+        align-items: center;
+        place-items: center;
+        margin: 0 !important;
+        max-width: 100% !important;
+        margin-left: 0px !important;
+        z-index: 20;
+        background-color: #ffffff;
+
+        border-radius: 5px;
+
+
+        border-top: none;
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 10px;
+
+    }
+
+    .upload-content-sidebar h4 {
+        display: none; 
+    }
+
+
+    .tab-of-content-upload {
+        text-align: center; 
+        margin-bottom: 0;
+        padding: 10px;
+        padding-top: 5px;
+        font-size: 14px; 
+        width: 150px;
+        flex: 0 0 150px; 
+        height: auto; 
+        margin: 10px; 
+        border: 2px solid transparent; 
+        white-space: nowrap; 
+        transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+        border-radius: 10px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center; 
+        border: none;
+        outline: none;
+        padding-bottom: 5px;
+        margin-top: 10px;
+
+        background-color: #f0f2f5;
+
+        margin-bottom: 10px;
+    }
+
+    .tab-of-content-upload i {
+        margin-right: 10px;
+    }
+
+    .content-upload-tabs-of-skylite {
+        font-size: 20px; 
+        vertical-align: middle;
+        color: #0f0f0f;
+        align-self: center;
+        text-align: center; 
+    }
+
+
+
+
+
+    
+
+
+
+    .upload-content-sidebar::-webkit-scrollbar {
+        display: none;
+    }
+
+    .upload-content-sidebar::-webkit-scrollbar-thumb {
+        background-color: #ccc; 
+        border-radius: 4px;
+    }
+
+    .upload-content-sidebar::-webkit-scrollbar-thumb:hover {
+        background-color: #b3b3b3; 
+    }
+    
+}
+
+@media screen and (max-width: 1440px) and (min-width: 1000px) {
+    .tab-of-content-upload {
+        text-align: center; 
+        margin-bottom: 0;
+        padding: 10px;
+        padding-top: 5px;
+        font-size: 14px; 
+        width: 150px;
+        flex: 0 0 150px; 
+        height: auto; 
+        margin: 10px; 
+        border: 2px solid transparent; 
+        white-space: nowrap; 
+        transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+        border-radius: 10px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center; 
+        border: none;
+        outline: none;
+        padding-bottom: 5px;
+        margin-top: 10px;
+
+        background-color: #ffffff;
+
+        margin-bottom: 10px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Video Preview Box Styling */
+.preview-box- {
+    position: absolute;
+    top: 135px;
+    height: 585px;    
+    right: 30px;
+    width: 300px;
+    background-color: #ffff;
+    padding: 20px;
+    margin-left: 0px;
+    overflow-y: auto;
+    background-color: #ffff;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    margin-left: 10px;
+
+}
+
+@media screen and (max-width: 1000px) and (min-width: 240px) {
+
+
+    .preview-box- {
+        position: relative; /* Changed from absolute to relative */
+        top: 165px; /* Remove top positioning */
+        right: auto; /* Remove right positioning */
+        width: 300px;
+        height: 300px;
+        padding: 20px; /* Keep padding */
+        overflow-y: auto; /* Retain overflow for scrolling */
+
+        background-color: #ffff;
+        border: 1px solid #ddd;
+        border-radius: 20px;
+        margin: 10px auto 5px; /* Centered using auto left and right margins */
+        align-items: center !important; /* Align items in the center */
+        align-self: center !important; /* Align self in the center */
+    }
+
+    .content-upload-holder {
+        position: absolute; /* Changed from absolute to relative */
+        top: 475px; /* Remove top positioning */
+        left: auto; /* Remove left positioning */
+        width: 100%; /* Full width */
+        max-width: none; /* Remove max-width for responsiveness */
+        margin-top: 5px; /* Add margin above to separate from the preview box */
+        height: auto; /* Let height adjust automatically */
+        background: #ffffff; /* Keep background color */
+
+        padding: 0px !important; /* Keep padding */
+        overflow-y: auto; /* Maintain overflow for scrolling */
+        animation: fadeIn 0.5s ease-in-out; /* Keep animation */
+
+        border: none;
+        margin-right: 0px;
+        border-radius: 0;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.user-account,
+.my-contentt,
+.skylite-analytics,
+.skylite-Comments,
+.skylite-Earnings,
+.Skylite-Ads {
+    top: 135px;
+    height: 600px;
+    overflow-y: auto;
+    animation: fadeIn 0.5s ease-in-out;
+    margin-left: 190px;
+    border: 1px solid #e0e0e0;
+    border-radius: 0px;
+    margin-right: 0px;
+    padding: 20px;
+    padding-left: 30px;
+    scroll-behavior: smooth; /* Enables smooth scrolling */
+    border-left: none;
+}
+
+
+.skylite-analytics {
+    top: 135px;
+    height: 600px;
+    overflow-y: auto;
+    animation: fadeIn 0.5s ease-in-out;
+    margin-left: 190px;
+    border: 1px solid #e0e0e0;
+    border-radius: 0px;
+    margin-right: 0px;
+    padding: 20px;
+    padding-left: 0px;
+    padding-top: 5px;
+    scroll-behavior: smooth; 
+    border-left: none;
+}
+
+
+.user-account::-webkit-scrollbar {
+    width: 8px; 
+}
+
+.user-account::-webkit-scrollbar-thumb {
+    background-color: #777777;
+    border-radius: 6px; 
+    border: 3px solid rgba(255, 255, 255, 0.3);
+}
+
+.user-account::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.05); 
+    border-radius: 10px; 
+    margin: 10px 0; 
+}
+
+
+
+.profile-photo-large-account {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 1px solid #333;
+    transition: transform 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Added shadow */
+
+}
+
+
+.account-username {
+    font-size:  24px;
+    font-weight: 600;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Added shadow */
+
+}
+
+.account-followers {
+    font-size:  20px;
+    font-weight: normal;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: #666;
+    text-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Added shadow */
+
+}
+
+
+.account-info-buttons-container {
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    padding-left: 0;
+    padding-bottom: 10px;
+}
+
+.user-account-info-hold-box {
+    width: 100%;
+    margin-bottom: 30px;
+    padding: 40px;
+    padding-top: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 20px;
+}
+
+.user-account-settings {
+    margin-bottom: 30px;
+    padding: 40px;
+    padding-top: 20px;
+    width: 100%;
+    border: 1px solid #e0e0e0;
+    border-radius: 20px;    
+}
+
+
+.full-account-detail-box {
+    margin-bottom: 0px;
+    padding: 12px;
+    padding-left: 0px;
+}
+
+.account-Security-Password {
+    padding: 20px;
+    padding-left: 0px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #ccc;
+}
+
+
+.account-info-headings {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 15px;
+    margin-top: 10px;
+    margin-bottom: 0px;
+    color: #0d0d0d;
+    font-weight: 600;
+
+}
+
+
+.user-account-info {
+    font-size: 14px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: #1f2328;
+    font-weight: normal;
+    margin-bottom: 10px;
+
+}
+
+.user-account-settings-headings {
+    color: #1f2328;
+    font-size: 24px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.user-account-presonell-info-headings {
+    font-size: 16px;
+    font-weight: 400;
+    color: #666;
+    font-family: sans-serif;
+}
+
+
+
+
+
+
+.account-Privacy-Visibility {
+    margin-bottom: 30px;
+    border-radius: 20px;
+    padding: 0px;
+    width: 100%;
+    border: 1px solid #ccc;
+}
+
+
+.account-more-options {
+    margin-bottom: 30px;
+    border-radius: 20px;
+    padding: 0px;
+    width: 100%;
+    border: 1px solid #ccc;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.account-section {
+    margin-top: 30px;
+    position: relative;
+}
+
+.account-section-password {
+    position: relative;
+
+}
+
+.account-section h2 {
+    margin-bottom: 10px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+/* Modal Overlay */
+.account-section-form-container {
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 50%;
+    height: 50%;
+    background-color: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    overflow: auto;
+}
+
+/* Modal Content */
+.account-section-form-container {
+    background-color: #ffffff;
+    margin: 3% auto;
+    padding: 40px;
+    border: none;
+    width: 70%;
+    height: 70%;
+    max-width: 1000px;
+    max-height: 85%;
+    border-radius: 20px;
+    box-shadow: 0px 0px 30px rgba(0.3, 0.3, 0.3, 0.3);
+    position: relative;
+    overflow-y: auto;
+    top: 30px !important;
+    animation: advancedVideoLicenseModalFadeIn 0.3s ease-in-out;
+}
+
+/* Disable page interaction when modal is open */
+body.modal-open {
+    pointer-events: none;
+}
+
+body.modal-open .account-section-form-container {
+    pointer-events: auto; /* Allow interaction with the modal */
+}
+
+
+
+/* Close Icon */
+#close-circle-x-mark {
+    position: absolute !important;
+    top: 20px !important;
+    right: 25px !important;
+    font-size: 32px !important;
+    cursor: pointer !important;
+    color: #aaa !important;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+#close-circle-x-mark:hover {
+    color: #000;
+    transform: scale(1.2);
+}
+
+.account-section label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+
+
+
+.account-section button {
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.account-section button:hover {
+    background-color: #0056b3;
+}
+
+.user-account-toggle-section {
+    color: blue;
+    cursor: pointer;
+    font-weight: normal;
+    font-size: 14px !important;
+    margin-bottom: 0px !important;
+    margin: 0px !important;
+}
+
+.user-account-toggle-section:hover {
+    color: darkblue;
+}
+
+
+
+.pasword-headings {
+    font-size: 14px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 500;
+    color: #0f0f0f;
+
+}
+
+
+
+.account-password-input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+    box-shadow: 0 px 0px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+
+.account-password-input::placeholder {
+    color: #888; /* Change this to the desired color */
+    font-style: italic; /* Makes the placeholder text italic */
+    font-size: 14px; /* Adjust the font size */
+    opacity: 0.7; /* Adjust the transparency of the placeholder text */
+}
+
+
+.Verify-Password-button {
+    text-align: center;
+    border-radius: 5px;
+    width: 100px;
+    outline: none;
+    border: none;
+    color: #0f0f0f;
+    font-weight: 500;
+    font-size: 14px;
+    background-color: #f0f0f0;
+    white-space: nowrap;
+    padding: 5px 16px;
+}
+
+.Verify-Password-button:hover {
+    background-color: #0f0f0f;
+    color: #fdfdfd;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.account-info-edit-button-holder {
+    display: flex;
+    border-radius: 100px;
+    width: 40px;
+    height: 40px;
+    place-items: center;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+
+.account-info-edit-button-holder:hover {
+    background-color: #ccc;
+    display: flex;
+    border-radius: 100px;
+    width: 40px;
+    height: 40px;
+    place-items: center;
+    justify-content: center; /* Centers the items horizontally */
+    align-items: center; /* Centers the items vertically */
+}
+
+.account-info-edit-button:hover {
+    color: #000;
+    font-weight: 600;
+}
+
+
+.account-info-edit-button {
+    float: right; 
+    cursor: pointer;
+    color: #333333;
+
+}
+
+.account-info {
+    padding-top: 10px;
+}
+
+.account-detaisl-heading {
+    font-size: 15px !important;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 600;
+    color: #0f0f0f;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.account-actual-user-info {
+    font-size: 14px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: #1f2328;
+    margin-bottom: 10px;
+}
+
+
+
+.user-account-delete-heading {
+    color: #d1242f;
+    font-size: 24px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.delete-account-info-para {
+    color: #1f2328;
+    border-top: 1px solid #ccc;
+    padding-top: 16px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin: 0px 0px 10px;
+    font-size: 14px;
+}
+
+.delete-Account-btn {
+    color: #d1242f;
+    font-size: 14px;
+    background-color: #f6f8fa;
+    padding: 5px 16px;
+    border: 1px solid #ccc;
+    outline: none;
+    border-radius: 5px;
+    font-weight: 600;
+    outline: none !important;
+}
+.delete-Account-btn:hover {
+    background-color: #d1242f;
+    color: #f6f8fa;
+}
+
+.account-edit-info-para {
+    color: #59636E;
+    font-size: 15px;
+    margin: 16px 0px 10px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    border-bottom: 1px solid #ccc;
+}
+
+.account-password-learn-more-link {
+    color: #0969da;
+    cursor: pointer;
+    font-weight: normal !important;
+    font-size: 14px !important;
+    text-decoration: underline;
+}
+
+.account-password-learn-more-link:hover {
+    color: darkblue;
+}
+
+
+
+
+
+.edit-about {
+    height: 100px;
+    padding: 8px;  
+    border: 1px solid #ccc;    
+    border-radius: 10px;        
+    font-size: 14px;           
+    box-sizing: border-box;    
+    transition: border-color 0.3s; 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.edit-input {
+    width: 70%;                
+    padding: 8px;  
+    border: 2px solid #ccc;
+    border-radius: 5px;      
+    font-size: 14px;           
+    box-sizing: border-box;    
+    transition: border-color 0.3s; 
+}
+
+
+.edit-input:hover {
+    border: 2px solid #666;
+
+}
+
+.edit-input:focus {
+    border: 2px solid #000;
+}
+
+.edit-input-link {
+    margin-top: 10px;
+    width: 40%;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 16px;
+    padding: 10px;
+    height: 50px;
+    margin-bottom: 30px;
+    white-space: pre-wrap; /* Preserves white space and wraps text as needed */
+    word-wrap: break-word; /* Ensure long words break and don't overflow */
+    overflow-wrap: break-word; /* Alternative property for word wrapping */
+    overflow-x: hidden; /* Hide horizontal overflow */
+    resize: none;
+    box-sizing: border-box;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.1);
+
+}
+
+
+
+
+/* Custom button styling */
+.music-add-button-label {
+    outline: none;
+    border: none;
+    border-radius: 20px;
+    margin-bottom: 0px;
+    color: #000;
+    background-color: #f0f0f0;
+    padding: 5px;
+    font-size: 15px;
+    font-weight: 600;
+    text-align: center;
+    width: 100px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    display: inline-block;
+}
+
+/* Style for hovering over the button */
+.music-add-button-label:hover {
+    background-color: #ccc;
+}
+
+.music-add-button-wrapper {
+    margin-top: 10px;
+    width: 50%;
+}
+
+/* Ensure the input is clickable through the label */
+.music-add-button-wrapper input[type="file"] {
+    outline: none;
+    border: none;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    color: #000;
+    background-color: #f0f0f0;
+    margin-bottom: 10px;
+}
+
+.music-add-input {
+    margin-bottom: 5px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+
+}
+
+.music-add-input:hover{
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+}
+
+.add-music-delete-trsh-can-holder {
+    left: 0; /* Aligns it with the left edge of the input field */
+    display: flex;
+    border-radius: 100px;
+    width: 40px;
+    height: 40px;
+    place-items: center;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+
+.add-music-delete-trsh-can-holder:hover {
+    background-color: #ccc;
+    display: flex;
+    border-radius: 100px;
+    width: 40px;
+    place-items: center;
+    justify-content: center; /* Centers the items horizontally */
+    align-items: center; /* Centers the items vertically */
+}
+
+.add-music-delete-trsh-can:hover {
+    color: #000;
+    font-weight: 600;
+}
+
+.add-music-delete-trsh-can {
+    color: #333333;
+}
+
+
+
+.add-link-button {
+    outline: none;
+    border: none;
+    border-radius: 20px;
+    color: #000;
+    background-color: #f0f0f0;
+    padding: 5px;
+    font-size: 15px;
+    font-weight: 600;
+    width: 100px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+}
+.add-link-button:hover {
+    background-color: #ccc;
+}
+
+.add-link-button:focus {
+    outline: none;
+}
+
+
+
+#additionallinkTitle {
+    width: 40%;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    padding-bottom: 5px;
+    margin-top: 10px;
+    padding-top: 0px;
+    transition: border-color 0.3s; 
+
+}
+
+.link-title-input-label {
+    padding-left: 5px;
+    margin-bottom: 0px;
+    color: #606060;
+    font-weight: 500;
+    font-size: 12px;
+}
+
+.edit-input-link-title {
+    margin-top: 0px;
+    width: 100%;
+    font-size: 14px;
+    padding-left: 5px;
+    padding-top: 0px;
+
+    margin-bottom: 0px;
+    outline: none;
+    border: none;
+}
+
+
+
+
+
+#additionallinkURL {
+    position: relative; /* Enable absolute positioning within this container */
+    width: 40%;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 30px;
+    padding-bottom: 5px;
+    transition: border-color 0.3s; 
+
+}
+.edit-input-link-url {
+    margin-top: 0px;
+    width: 100%;
+    font-size: 14px;
+    padding-left: 5px;
+    padding-top: 0px;
+
+    margin-bottom: 0px;
+    outline: none;
+    border: none;
+}
+.add-link-url {
+    display: flex;
+    flex-direction: column;
+}
+
+.edit-input-label {
+    margin-top: 5px;
+    padding-left: 5px;
+    margin-bottom: 0px;
+    color: #606060;
+    font-weight: 500;
+    font-size: 12px;
+}
+
+#additionallinkTitle:hover,
+#additionallinkURL:hover {
+    border: 2px solid #666;
+}
+
+#additionallinkTitle:focus,
+#additionallinkURL:focus {
+    border: 2px solid #000;
+}
+
+
+.external-link-delete-trsh-can-holder {
+    position: absolute; /* Position relative to the parent container */
+    left: 0; /* Aligns it with the left edge of the input field */
+    top: calc(100% + 5px); /* Places it just below the input field, adjust the 5px to increase/decrease spacing */
+    display: flex;
+    border-radius: 100px;
+    width: 40px;
+    height: 40px;
+    place-items: center;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+
+.external-link-delete-trsh-can-holder:hover {
+    background-color: #ccc;
+    display: flex;
+    border-radius: 100px;
+    width: 40px;
+    height: 40px;
+    place-items: center;
+    justify-content: center; /* Centers the items horizontally */
+    align-items: center; /* Centers the items vertically */
+}
+
+.external-link-delete-trsh-can:hover {
+    color: #000;
+    font-weight: 600;
+}
+
+.external-link-delete-trsh-can {
+    color: #333333;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 1000px) and (min-width: 260px) {
+
+    .user-account,
+    .my-contentt,
+    .skylite-analytics,
+    .skylite-Comments,
+    .skylite-Earnings,
+    .Skylite-Ads  {
+        position: relative; /* Changed from absolute to relative */
+        left: auto; /* Remove left positioning */
+        width: 100%; /* Full width */
+        height: auto; /* Let height adjust automatically */
+        background: #ffffff; /* Keep background color */
+        padding: 15px !important; /* Keep padding */
+        overflow-y: auto; /* Maintain overflow for scrolling */
+        animation: fadeIn 0.5s ease-in-out; /* Keep animation */
+        border: none;
+        margin: auto !important;
+        top: 10px !important;
+    }
+}
+
+
+
+@media screen and (max-width: 768px) and (min-width: 260px) {
+    .user-account-info-hold-box {
+        padding: 20px;
+    }
+}
+
+
+@media screen and (max-width: 1000px) and (min-width: 769px) {
+    .account-section-form-container {
+        margin: auto;
+        width: 70%;
+    }
+}
+@media screen and (max-width: 768px) and (min-width: 600px) {
+    .account-section-form-container {
+        margin: auto;
+        width: 80%;
+    }
+
+    .account-Security-Password {
+        padding: 10px;
+    }
+
+    .user-account,
+    .my-contentt,
+    .skylite-analytics,
+    .skylite-Comments,
+    .skylite-Earnings,
+    .Skylite-Ads  {
+        padding: 0px;
+    }
+}
+
+@media screen and (max-width: 600px) and (min-width: 500px) {
+    .account-section-form-container {
+        margin: auto;
+        width: 85%;  
+        margin-bottom: 10px;
+
+    }
+
+    .account-Security-Password {
+        padding: 10px;
+    }
+
+    .user-account,
+    .my-contentt,
+    .skylite-analytics,
+    .skylite-Comments,
+    .skylite-Earnings,
+    .Skylite-Ads  {
+        padding: 0px;
+    }
+}
+
+
+@media screen and (max-width: 500px) and (min-width: 400px) {
+    .account-section-form-container {
+        margin: auto;
+        width: 95%;
+        margin-bottom: 15px;
+
+    }
+
+    .account-Security-Password {
+        padding: 5px;
+    }
+
+    .user-account,
+    .my-contentt,
+    .skylite-analytics,
+    .skylite-Comments,
+    .skylite-Earnings,
+    .Skylite-Ads {
+        padding: 0px;
+    }
+}
+
+@media screen and (max-width: 400px) and (min-width: 240px) {
+    .account-section-form-container {
+        margin: auto;
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    .account-Security-Password {
+        padding: 5px;
+    }
+
+    .user-account,
+    .my-contentt,
+    .skylite-analytics,
+    .skylite-Comments,
+    .skylite-Earnings,
+    .Skylite-Ads  {
+        padding: 0px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Content Management Section */
+.content-management-section {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0px;
+    background-color: #ffffff;
+    border-radius: 0px;
+}
+
+/* Search Bar */
+.cms-search-bar {
+    display: flex;
+    margin-bottom: 20px;
+    outline: none;
+}
+
+.cms-search-bar input {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid #e0e0e0;
+    border-radius: 25px;
+    font-size: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    outline: none;
+}
+
+.cms-search-bar button {
+    padding: 12px 20px;
+    border: 1px solid #007bff;
+    background-color: #007bff;
+    color: white;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.cms-search-bar button:focus {
+    outline: none;
+}
+
+
+.cms-tablinks {
+    background-color: var(--tab-bg-color);
+    border: 1px solid var(--border-color);
+    border-bottom: none;
+    padding: 14px 20px;
+    font-size: 15px;
+    text-align: center;
+    cursor: pointer;
+    color: var(--text-color);
+    font-weight: 500;
+    white-space: nowrap;  /* Ensure text stays on one line */
+}
+
+.cms-tablinks:hover {
+    background-color: var(--tab-hover-bg-color);
+}
+
+.cms-tablinks.active {
+    background-color: var(--tab-active-bg-color);
+    color: var(--button-bg-color);
+    border-bottom: 2px solid var(--button-bg-color);
+    font-weight: 600;
+}
+
+
+/* Filter Options */
+.cms-filters {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.cms-filter-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.cms-filters label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #555;
+}
+
+.cms-filters select {
+    padding: 8px;
+    border: 1px solid #d1d1d1;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #333;
+}
+
+/* Tab content */
+.cms-tabcontent {
+    display: none;
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    border-top: none;
+    background-color: #fafafa;
+    border-radius: 0 0 6px 6px;
+}
+
+.cms-tabcontent h1 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.cms-tabcontent p {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .cms-tablinks {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .cms-filters {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .cms-filters label, .cms-filters select {
+        width: 100%;
+    }
+}
+
+
+
+
+
+/* Tabs */
+.cms-tabs {
+    display: flex;
+    flex: 1;
+
+    margin-bottom: 0px;
+    border-bottom: 1px solid #e0e0e0;
+    overflow-x: auto;  /* Enable horizontal scrolling */
+    white-space: nowrap;  /* Prevent wrapping of tab buttons */
+    -webkit-overflow-scrolling: touch;  /* Smooth scrolling on iOS */
+}
+
+.cms-tablinks {
+    background-color: var(--tab-bg-color);
+    border-bottom: none;
+    padding: 14px 20px;
+    font-size: 15px;
+    text-align: center;
+    cursor: pointer;
+    color: var(--text-color);
+    font-weight: 500;
+    white-space: nowrap;
+    outline: none;
+}
+
+.cms-tablinks.active {
+    border-left: none;
+    border-top: none;
+    outline: none;
+    border-right: none;
+    border-bottom: 2px solid #000;
+    font-weight: 600;
+}
+
+/* Sort Icon */
+.cms-sort {
+    position: relative;
+    padding: 14px 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.cms-sort-icon {
+    font-size: 18px;
+    color: #606060;
+    cursor: pointer;
+}
+
+/* Hide the select box by default */
+.cms-sort-options {
+    display: none;
+    position: absolute;
+    top: 40px;  /* Adjust this based on the height of the sort icon */
+    left: 0;
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid var(--border-color);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+}
+
+/* Show the select options when clicking on the sort icon */
+.cms-sort-icon:hover + .cms-sort-options, 
+.cms-sort-options:hover {
+    display: block;
+}
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+.input-description {
+    color: #606060;
+    font-size: 13px;
+    margin: 0px 0px 8px;
+    width: 70%;
+}
+
+.input-description-of-verify-email {
+    color: #606060;
+    font-size: 13px;
+    margin: 0px 0px 8px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.skylite-analytic-tabs-navigation {
+    position: fixed;
+    display: flex; /* This makes the tabs align horizontally */
+    justify-content: flex-start; /* Distributes the tabs evenly across the container */
+    background-color: #ffffff; /* Background color for the tab container */
+    padding: 10px;
+    padding-bottom: 0px;
+    border-bottom: 1px solid #ccc; /* A border to separate the tabs from the content below */
+}
+
+.skylite-analytic-tabs-navigation > div {
+    padding: 10px 20px; /* Padding inside each tab for a better look */
+    cursor: pointer; /* Changes the cursor to a pointer on hover */
+    font-size: 15px; /* Font size for the tab text */
+    font-weight: 500; /* Makes the tab text bold */
+    color: #333; /* Text color */
+    border-radius: 4px 4px 0 0; /* Rounds the top corners of the tabs */
+    transition: background-color 0.3s ease; /* Smooth transition for background color on hover */
+}
+
+.skylite-analytic-tabs-navigation > div:hover {
+    background-color: #e0e0e0; /* Background color when hovering over a tab */
+}
+
+.overview-active {
+    background-color: #ffffff; /* Active tab background color */
+    border-bottom: 2px solid #333; /* Hides the bottom border of the active tab */
+    color: #000; /* Active tab text color */
+}
+
+.tab-user-engagement, .tab-viewer-rating, .tab-video-expectation, .tab-video-performance, .tab-revenue {
+    background-color: #ffffff; /* Inactive tab background color */
+}
+
+.tab-user-engagement.active, .tab-viewer-rating.active, .tab-video-expectation.active, .tab-video-performance.active, .tab-revenue.active {
+    background-color: #ffffff; /* Active tab background color */
+    border-bottom: 2px solid #333; /* Hides the bottom border of the active tab */
+    color: #000; /* Active tab text color */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
